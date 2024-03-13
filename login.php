@@ -10,12 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-    if ($password == $user["password"]) {
+    if ($password === $user["password"]) {
         $_SESSION["username"] = $username;
         header('Location: dashboard.php');
         exit();
     } else {
-        echo "<span class='errorMsg'>Invalid login credentials.</span>";
+        $error="invalid records";
     }
     $stmt->close();
     $conn->close();
