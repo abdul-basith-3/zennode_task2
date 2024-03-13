@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+    <div class="main__container">
+        <div class="form__container"> 
+            <h1>Register</h1>
+        <form action="register.php" method="post" id="form">
+            <label for="username">Username:</label><br>
+            <input type="text" id="username" name="username" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <label for="confirm_password">Confirm Password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password" required><br>
+            <input type="submit" value="Register">
+        </form>
+        <div class="main__sub">
+            <p>already have an account? <a href="login.html">login here</a></p>
+        </div>
+
+        </div> 
+    </div>
+    <script>
+        document.querySelector('form').onsubmit = function (event) {
+            var password = document.getElementById("password").value;
+            var confirm_password = document.getElementById("confirm_password").value;
+            if (password != confirm_password) {
+                alert("Passwords do not match");
+                event.preventDefault();
+            }
+        }
+    </script>
+</body>
+
+</html>
